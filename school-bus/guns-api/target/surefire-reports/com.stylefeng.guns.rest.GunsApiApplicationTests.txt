@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: com.stylefeng.guns.rest.GunsApiApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.274 s <<< FAILURE! - in com.stylefeng.guns.rest.GunsApiApplicationTests
+com.stylefeng.guns.rest.GunsApiApplicationTests  Time elapsed: 0.273 s  <<< ERROR!
+java.lang.IllegalStateException: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test
+
