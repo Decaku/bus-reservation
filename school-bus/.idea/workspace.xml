@@ -22,7 +22,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="845d5f9a-b6fc-4873-b479-ea8bf59c8f99" name="Default Changelist" comment="" />
+    <list default="true" id="845d5f9a-b6fc-4873-b479-ea8bf59c8f99" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guns-api/guns-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/guns-api/guns-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guns-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/guns-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guns-api/src/main/java/com/stylefeng/guns/rest/common/AbstractResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/guns-api/src/main/java/com/stylefeng/guns/rest/common/AbstractResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guns-user/guns-user.iml" beforeDir="false" afterPath="$PROJECT_DIR$/guns-user/guns-user.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guns-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/guns-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/modular/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/modular/user/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guns-user/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school-bus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/school-bus.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +71,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
@@ -88,29 +105,41 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="238" key="GridCell.Tab.0.bottom" timestamp="1608656635827">
+    <state x="208" y="31" key="#Project_Structure" timestamp="1608733166002">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608656635827" />
-    <state width="1398" height="238" key="GridCell.Tab.0.center" timestamp="1608656635826">
+    <state x="208" y="31" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1608733166002" />
+    <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1608733420527">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608656635826" />
-    <state width="1398" height="238" key="GridCell.Tab.0.left" timestamp="1608656635825">
+    <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1608733420527" />
+    <state width="1398" height="238" key="GridCell.Tab.0.bottom" timestamp="1608734001069">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608656635825" />
-    <state width="1398" height="238" key="GridCell.Tab.0.right" timestamp="1608656635827">
+    <state width="1398" height="238" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608734001069" />
+    <state width="1398" height="238" key="GridCell.Tab.0.center" timestamp="1608734001068">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608656635827" />
+    <state width="1398" height="238" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608734001068" />
+    <state width="1398" height="238" key="GridCell.Tab.0.left" timestamp="1608734001068">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="238" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608734001068" />
+    <state width="1398" height="238" key="GridCell.Tab.0.right" timestamp="1608734001069">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="238" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608734001069" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1608655822028">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608655822028" />
-    <state x="176" y="120" key="new project wizard" timestamp="1608653218264">
+    <state x="176" y="120" key="new project wizard" timestamp="1608733153316">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="176" y="120" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1608653218264" />
+    <state x="176" y="120" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1608733153316" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608732367356">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608732367356" />
   </component>
 </project>

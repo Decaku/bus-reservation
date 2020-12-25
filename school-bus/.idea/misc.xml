@@ -6,6 +6,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/guns-api/pom.xml" />
         <option value="$PROJECT_DIR$/guns-user/pom.xml" />
+        <option value="$PROJECT_DIR$/gun-core/pom.xml" />
+        <option value="$PROJECT_DIR$/guns-core/pom.xml" />
       </list>
     </option>
   </component>

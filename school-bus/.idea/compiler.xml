@@ -2,23 +2,30 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="guns-user" />
         <module name="guns-api" />
+        <module name="gun-core" />
+        <module name="guns-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="gun-core" target="15" />
       <module name="guns-api" target="1.8" />
+      <module name="guns-core" target="15" />
       <module name="guns-user" target="1.8" />
       <module name="school-bus" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gun-core" options="-parameters" />
       <module name="guns-api" options="-parameters" />
+      <module name="guns-core" options="-parameters" />
       <module name="guns-user" options="-parameters" />
       <module name="school-bus" options="-parameters" />
     </option>
