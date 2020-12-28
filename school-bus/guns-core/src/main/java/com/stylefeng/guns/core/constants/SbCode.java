@@ -4,9 +4,16 @@ package com.stylefeng.guns.core.constants;
  * 状态码和信息
  */
 public enum SbCode {
-
+    SUCCESS("000000", "成功"),
     USERNAME_ALREADY_EXISTS("003003", "用户名已存在"),
-    USERNAME_ALREADY_NO_EXISTS("003009", "用户名不存在");
+    USERNAME_ALREADY_NO_EXISTS("003009", "用户名不存在"),
+    USER_REGISTER_VERIFY_FAILED("003007", "用户注册失败插入验证数据失败"),
+    USERORPASSWORD_ERRROR("003001", "用户名或密码不正确"),
+    DB_EXCEPTION("003097", "数据库异常"),
+    USER_INFOR_INVALID("003008", "用户信息不合法");
+
+
+
 
 
     private String code;
