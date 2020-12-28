@@ -1,5 +1,6 @@
 package com.stylefeng.guns.rest.modular.bus;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.stylefeng.guns.core.constants.SbCode;
@@ -48,4 +49,41 @@ public class BusServiceImpl implements IBusService {
         }
         return response;
     }
+
+    @Override
+    public PageCountResponse getCount(PageCountRequest request) {
+        PageCountResponse response = new PageCountResponse();
+        try {
+            IPage<CountSimpleDto> countIPage = new Page<>(request.getCurrentPage(), request.getPageSize());
+            QueryWrapper<CountSimpleDto> queryWrapper = new QueryWrapper<>();
+            // 获取时间
+            String currHours = DateUtil.getHours();
+            String day = DateUtil.getDay();
+            System.out.println("当前时间："+currHours);
+            System.out.println("当前日期："+day);
+            // 判断条件
+            queryWrapper
+                    .eq("begin_date", day)
+                    .ge("begin_time", currHours)
+                    .eq("bus_status", request.getBusStatus())
+                    .orderByAsc("begin_time");// 时间
+
+            countIPage = countMapper.selectCounts(countIPage, queryWrapper);
+            response.setCurrentPage(countIPage.getCurrent());
+            response.setPageSize(countIPage.getSize());
+            response.setPages(countIPage.getPages());
+            response.setTotal(countIPage.getTotal());
+            response.setCountSimpleDtos(countIPage.getRecords());
+            response.setCode(SbCode.SUCCESS.getCode());
+            response.setMsg(SbCode.SUCCESS.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.setCode(SbCode.DB_EXCEPTION.getCode());
+            response.setMsg(SbCode.DB_EXCEPTION.getMessage());
+            log.error("getCount:", e);
+            return response;
+        }
+        return response;
+    }
+
 }
