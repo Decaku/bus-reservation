@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/school-bus/guns-api/guns-api.iml" filepath="$PROJECT_DIR$/school-bus/guns-api/guns-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/school-bus/guns-bus/guns-bus.iml" filepath="$PROJECT_DIR$/school-bus/guns-bus/guns-bus.iml" />
       <module fileurl="file://$PROJECT_DIR$/school-bus/guns-core/guns-core.iml" filepath="$PROJECT_DIR$/school-bus/guns-core/guns-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/school-bus/guns-user/guns-user.iml" filepath="$PROJECT_DIR$/school-bus/guns-user/guns-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/school-bus/school-bus.iml" filepath="$PROJECT_DIR$/school-bus/school-bus.iml" />

@@ -3,10 +3,9 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/school-bus/guns-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/school-bus/guns-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/school-bus/guns-bus/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/school-bus/guns-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/school-bus/guns-user/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/school-bus/guns-user/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/school-bus/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/school-bus/src/main/resources" charset="UTF-8" />
   </component>
 </project>

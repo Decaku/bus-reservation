@@ -11,6 +11,7 @@
 	<name>guns-api</name>
 	<description>guns API服务接口</description>
 
+
 	<parent>
 		<groupId>com.decaku</groupId>
 		<artifactId>school-bus</artifactId>
