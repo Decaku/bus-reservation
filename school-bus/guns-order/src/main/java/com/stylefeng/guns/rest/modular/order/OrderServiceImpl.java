@@ -148,6 +148,7 @@ public class OrderServiceImpl implements IOrderService {
         return response;
     }
 
+
     /**
      * 返回未支付列表
      * @param request
@@ -189,6 +190,12 @@ public class OrderServiceImpl implements IOrderService {
         return response;
     }
 
+
+    /**
+     * 添加订单 （核心函数）
+     * @param request
+     * @return
+     */
     @Override
     public AddOrderResponse addOrder(AddOrderRequest request) {
         AddOrderResponse response = new AddOrderResponse();
@@ -256,6 +263,93 @@ public class OrderServiceImpl implements IOrderService {
             response.setMsg(SbCode.SYSTEM_ERROR.getMsg());
             return response;
         }
+    }
+
+
+    /**
+     * 根据订单id返回订单信息
+     * @param request
+     * @return
+     */
+    @Override
+    public OrderResponse selectOrderById(OrderRequest request) {
+        OrderResponse response = new OrderResponse();
+        try {
+            QueryWrapper<OrderDto> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("so.uuid", request.getUuid());
+            OrderDto orderDto = orderMapper.selectOrderById(queryWrapper);
+            response.setOrderDto(orderDto);
+            response.setCode(SbCode.SUCCESS.getCode());
+            response.setMsg(SbCode.SUCCESS.getMsg());
+        } catch(Exception e) {
+            e.printStackTrace();
+            log.error("selectOrderById", e);
+            response.setCode(SbCode.DB_EXCEPTION.getCode());
+            response.setMsg(SbCode.DB_EXCEPTION.getMsg());
+        }
+        return response;
+    }
+
+
+    /**
+     * 更新订单状态 0-待支付,1-已支付,2-已关闭/
+     * @param request
+     * @return
+     */
+    @Override
+    public OrderResponse updateOrderStatus(OrderRequest request) {
+        OrderResponse response = new OrderResponse();
+        try {
+            // 获取OrderDto
+            QueryWrapper<OrderDto> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("so.uuid", request.getUuid());
+            OrderDto orderDto = orderMapper.selectOrderById(queryWrapper);
+
+            // 1. 检查状态是否为2
+            if(request.getOrderStatus().equals("2")) {
+                // 关闭订单，回退座位。 清除缓存
+                busService.filterRepeatSeats(orderDto.getSeatsIds(), orderDto.getCountId());
+                redisUtils.del(RedisConstants.COUNT_DETAIL_EXPIRE.getKey()
+                        + orderDto.getCountId());
+            } else if(request.getOrderStatus().equals("1")) {
+                // 已支付，删除缓存
+                redisUtils.del(RedisConstants.ORDER_CANCLE_EXPIRE.getKey() + request.getUuid());
+            }
+
+            Order order = orderConverter.res2Order(request);
+
+            orderMapper.updateById(order);
+            response.setCode(SbCode.SUCCESS.getCode());
+            response.setMsg(SbCode.SUCCESS.getMsg());
+            redisUtils.del(RedisConstants.NO_PAY_ORDERS_EXPIRE.getKey()+order.getUserId());
+            redisUtils.del(RedisConstants.SELECT_ORDER_EXPIRE.getKey() + request.getUuid());
+        } catch (Exception e) {
+            log.error("updateOrderStatus", e);
+            response.setCode(SbCode.DB_EXCEPTION.getCode());
+            response.setMsg(SbCode.DB_EXCEPTION.getMsg());
+            return response;
+        }
+        return response;
+    }
+
+
+    /**
+     * 根据订单id删除订单, 这里的设计有点问题，从业务角度来考虑 最好不要对数据库里的数据硬删除
+     * @param OrderId
+     * @return
+     */
+    @Override
+    public boolean deleteOrderById(Long OrderId) {
+        try {
+            QueryWrapper<Order> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("uuid", OrderId);
+            orderMapper.delete(queryWrapper);
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("deleteOrderById:", e);
+            return false;
+        }
+        return true;
     }
 
 

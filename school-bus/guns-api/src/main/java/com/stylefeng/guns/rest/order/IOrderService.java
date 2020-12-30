@@ -36,4 +36,27 @@ public interface IOrderService {
     AddOrderResponse addOrder(AddOrderRequest request);
 
 
+    /**
+     * 通过id获取详情订单
+     * @param request
+     * @return
+     */
+    OrderResponse selectOrderById(OrderRequest request);
+
+
+    /**
+     * 修改订单状态
+     * @param request
+     * @return
+     */
+    OrderResponse updateOrderStatus(OrderRequest request);
+
+
+    /**
+     * 根据订单Id删除订单
+     * @param OrderId
+     * @return
+     */
+    boolean deleteOrderById(Long OrderId);
+
 }
