@@ -57,4 +57,8 @@ public interface IBusService {
      */
     void addCounts();
 
+    /**
+     * 每5s执行一次
+     */
+    void scheduledTest();
 }

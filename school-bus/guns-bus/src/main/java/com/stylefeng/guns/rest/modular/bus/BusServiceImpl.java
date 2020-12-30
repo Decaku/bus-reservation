@@ -1,5 +1,6 @@
 package com.stylefeng.guns.rest.modular.bus;
 
+import cn.hutool.core.convert.Convert;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -14,6 +15,7 @@ import com.stylefeng.guns.rest.common.persistence.dao.CountMapper;
 import com.stylefeng.guns.rest.common.persistence.model.Bus;
 import com.stylefeng.guns.rest.common.persistence.model.Count;
 import com.stylefeng.guns.rest.modular.bus.converter.BusConverter;
+import com.stylefeng.guns.rest.myutils.UUIDUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -258,6 +260,9 @@ public class BusServiceImpl implements IBusService {
         // 4. 更新场次列表的页数，但是， 这里不更新， 因为在接口那边会判断
     }
 
+    /**
+     * 每天添加一些场次
+     */
     @Override
     public void addCounts() {
         // 获取日期
@@ -273,7 +278,43 @@ public class BusServiceImpl implements IBusService {
             // 更改日期
             count.setBeginDate(day);
 
+            // 更改uuid
+            count.setUuid(UUIDUtils.flakesUUID());
+
+            // 清空座位
+            count.setSelectedSeats("");
+
+            // 座位状态清0
+            count.setSeatStatus("");
+
+            // 插入
+            countMapper.insert(count);
         }
 
+        // 1. 添加完之后，调用场次列表查看总页数
+        PageCountRequest request = new PageCountRequest();
+        request.setBusStatus("0"); // 沙河
+        request.setCurrentPage(Convert.toLong(1));
+        request.setPageSize(Convert.toLong(5));
+        PageCountResponse countResponse = this.getCount(request);
+        Long countPagesZero = countResponse.getPages();
+        log.info("沙河页数：" + countResponse.getPages());
+        request.setBusStatus("1"); // 清水河
+        PageCountResponse countResponse1 = this.getCount(request);
+        Long countPagesOne = countResponse1.getPageSize();
+
+        // 2. 构建key
+        // 2、构建key
+        String countPagesZeroKey = RedisConstants.COUNTS_PAGES_EXPIRE.getKey() + "0";
+        String countPagesOneKey = RedisConstants.COUNTS_PAGES_EXPIRE.getKey() + "1";
+        // 3、不用判断， 直接覆盖
+
+        redisUtils.set(countPagesZeroKey, countPagesZero);
+        redisUtils.set(countPagesOneKey, countPagesOne);
+    }
+
+    @Override
+    public void scheduledTest() {
+        log.info("Test 定时器");
     }
 }
