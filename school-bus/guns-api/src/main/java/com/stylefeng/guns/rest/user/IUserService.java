@@ -5,6 +5,7 @@ import com.stylefeng.guns.rest.user.dto.*;
 public interface IUserService {
     /**
      * 检查用户名是否存在
+     *
      * @param request：username
      * @return
      */
@@ -12,6 +13,7 @@ public interface IUserService {
 
     /**
      * 注册
+     *
      * @param request
      * @return
      */
@@ -19,6 +21,7 @@ public interface IUserService {
 
     /**
      * 用户登陆
+     *
      * @param request
      * @return
      */
@@ -26,6 +29,7 @@ public interface IUserService {
 
     /**
      * 通过id获取用户信息
+     *
      * @param request
      * @return
      */
@@ -33,6 +37,7 @@ public interface IUserService {
 
     /**
      * 更新用户信息
+     *
      * @param request
      * @return
      */

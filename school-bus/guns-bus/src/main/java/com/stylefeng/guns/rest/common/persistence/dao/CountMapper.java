@@ -11,7 +11,6 @@ import org.apache.ibatis.annotations.Param;
 
 public interface CountMapper extends BaseMapper<Count> {
     /**
-     *
      * @param page
      * @param wrapper
      * @return
@@ -19,7 +18,6 @@ public interface CountMapper extends BaseMapper<Count> {
     IPage<CountSimpleDto> selectCounts(IPage<CountSimpleDto> page, @Param(Constants.WRAPPER) Wrapper<CountSimpleDto> wrapper);
 
     /**
-     *
      * @param wrapper
      * @return
      */

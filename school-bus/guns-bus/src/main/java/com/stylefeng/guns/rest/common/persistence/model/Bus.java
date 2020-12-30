@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @TableName("sb_bus")
 @Data
 public class Bus implements Serializable {
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 主键编号

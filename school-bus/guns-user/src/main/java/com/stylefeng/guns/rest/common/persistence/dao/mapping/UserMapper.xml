@@ -4,15 +4,15 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.stylefeng.guns.rest.common.persistence.model.User">
-        <id column="uuid" property="uuid" />
-        <result column="user_name" property="userName" />
-        <result column="user_pwd" property="userPwd" />
-        <result column="nick_name" property="nickName" />
-        <result column="user_sex" property="userSex" />
-        <result column="email" property="email" />
-        <result column="user_phone" property="userPhone" />
-        <result column="begin_time" property="beginTime" />
-        <result column="update_time" property="updateTime" />
+        <id column="uuid" property="uuid"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_pwd" property="userPwd"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="user_sex" property="userSex"/>
+        <result column="email" property="email"/>
+        <result column="user_phone" property="userPhone"/>
+        <result column="begin_time" property="beginTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
 </mapper>

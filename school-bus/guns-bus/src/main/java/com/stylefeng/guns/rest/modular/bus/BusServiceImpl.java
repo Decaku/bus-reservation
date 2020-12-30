@@ -60,7 +60,7 @@ public class BusServiceImpl implements IBusService {
             e.printStackTrace();
             response.setCode(SbCode.DB_EXCEPTION.getCode());
             response.setMsg(SbCode.DB_EXCEPTION.getMsg());
-            log.error("getBus:" , e);
+            log.error("getBus:", e);
             return response;
         }
         return response;
@@ -75,8 +75,8 @@ public class BusServiceImpl implements IBusService {
             // 获取时间
             String currHours = DateUtil.getHours();
             String day = DateUtil.getDay();
-            System.out.println("当前时间："+currHours);
-            System.out.println("当前日期："+day);
+            System.out.println("当前时间：" + currHours);
+            System.out.println("当前日期：" + day);
             // 判断条件
             queryWrapper
                     .eq("begin_date", day)
@@ -126,13 +126,13 @@ public class BusServiceImpl implements IBusService {
     public boolean repeatSeats(String seats, Long countId) {
         try {
             Count count = countMapper.selectById(countId);
-            if(seats.equals("")) return true;
-            if(count.getSelectedSeats().equals("")) return false;
+            if (seats.equals("")) return true;
+            if (count.getSelectedSeats().equals("")) return false;
             String ss[] = seats.split(",");
             String cs[] = count.getSelectedSeats().split(",");
             HashSet<String> hashSet = new HashSet<>(Arrays.asList(cs));
-            for(String s : ss) {
-                if(hashSet.contains(s)) {
+            for (String s : ss) {
+                if (hashSet.contains(s)) {
                     return true;
                 }
             }
@@ -150,7 +150,7 @@ public class BusServiceImpl implements IBusService {
             Count count = countMapper.selectById(countId);
             String selectedSeats = count.getSelectedSeats();
             String newSelectedSeats = seats;
-            if(!selectedSeats.equals("")) {
+            if (!selectedSeats.equals("")) {
                 newSelectedSeats = selectedSeats + newSelectedSeats;
             }
             count.setSelectedSeats(newSelectedSeats);
@@ -169,17 +169,17 @@ public class BusServiceImpl implements IBusService {
             Count count = countMapper.selectById(countId);
             String[] ss = seats.split(",");
             String[] cs = count.getSelectedSeats().split(",");
-            HashSet<String>hashSet = new HashSet<>(Arrays.asList(cs));
-            for(String s : ss) {
-                if(hashSet.contains(s)) {
+            HashSet<String> hashSet = new HashSet<>(Arrays.asList(cs));
+            for (String s : ss) {
+                if (hashSet.contains(s)) {
                     hashSet.remove(s);
                 }
             }
-            if(hashSet.isEmpty()) {
+            if (hashSet.isEmpty()) {
                 count.setSelectedSeats("");
             }
             StringBuffer sb = new StringBuffer();
-            for(String s : hashSet) {
+            for (String s : hashSet) {
                 sb.append(s);
                 sb.append(",");
             }
@@ -204,15 +204,15 @@ public class BusServiceImpl implements IBusService {
         log.info("schedulChangeBusStatus 当前时间" + currTime);
         log.info("schedulChangeBusStatus 当前日期" + day);
 
-        QueryWrapper<Count>queryWrapper = new QueryWrapper<>();
+        QueryWrapper<Count> queryWrapper = new QueryWrapper<>();
 
         // 先取出beingtime和now相等的表或者end_time和now相等到表
         queryWrapper.eq("begin_date", day)
-                    .and(o -> o.eq("begin_time", currTime).or().eq("end_time", currTime));
+                .and(o -> o.eq("begin_time", currTime).or().eq("end_time", currTime));
         List<Count> countList = countMapper.selectList(queryWrapper);
         log.info("schedulChangeBusStatus countList = " + countList);
 
-        for(Count count : countList) {
+        for (Count count : countList) {
             String busStatus = count.getBusStatus();
             String beginTime = count.getBeginTime();
             String endTime = count.getEndTime();
@@ -248,11 +248,11 @@ public class BusServiceImpl implements IBusService {
         Long countOnePages = (Long) redisUtils.get(countOneKey);
 
         // 3. 遍历删除
-        for(int i = 1; i < countZeroPages; ++i) {
+        for (int i = 1; i < countZeroPages; ++i) {
             String key = RedisConstants.COUNTS_EXPIRE + "0" + Integer.toString(i);
             redisUtils.del(key);
         }
-        for(int i = 1; i < countOnePages; ++i) {
+        for (int i = 1; i < countOnePages; ++i) {
             String key = RedisConstants.COUNTS_EXPIRE + "1" + Integer.toString(i);
             redisUtils.del(key);
         }
@@ -269,12 +269,12 @@ public class BusServiceImpl implements IBusService {
         String day = DateUtil.getDay();
 
         // 获取前17个场次
-        QueryWrapper<Count>queryWrapper = new QueryWrapper<>();
+        QueryWrapper<Count> queryWrapper = new QueryWrapper<>();
         queryWrapper.last("limit 17");
         List<Count> countList = countMapper.selectList(queryWrapper);
 
         // 开始修改
-        for(Count count : countList) {
+        for (Count count : countList) {
             // 更改日期
             count.setBeginDate(day);
 

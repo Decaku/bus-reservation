@@ -30,31 +30,32 @@ public class UserServiceImpl implements IUserService {
     private UserConverter userConverter;
 
     /**
-     *  检查用户名是否已存在
+     * 检查用户名是否已存在
+     *
      * @param request
      * @return
      */
     @Override
     public UserCheckResponse checkUsername(UserCheckRequest request) {
-         UserCheckResponse res = new UserCheckResponse();
-         try {
-             QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-             queryWrapper.eq("user_name", request.getUsername()); // 拼接SQL "user_name=${request.getUsername()}"
-             User user = userMapper.selectOne(queryWrapper); // 返回一条查询记录
-             if(user != null) {
-                 res.setCheckUsername(0);
-                 res.setCode(SbCode.USERNAME_ALREADY_EXISTS.getCode());
-                 res.setMsg(SbCode.USERNAME_ALREADY_EXISTS.getMsg());
-             } else {
-                 res.setCheckUsername(1);
-                 res.setCode(SbCode.USERNAME_ALREADY_NO_EXISTS.getCode());
-                 res.setMsg(SbCode.USERNAME_ALREADY_NO_EXISTS.getMsg());
-             }
-         } catch (Exception e) {
-             e.printStackTrace();
-             log.error("checkUsername failed, err = " + e.toString());
-         }
-         return res;
+        UserCheckResponse res = new UserCheckResponse();
+        try {
+            QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("user_name", request.getUsername()); // 拼接SQL "user_name=${request.getUsername()}"
+            User user = userMapper.selectOne(queryWrapper); // 返回一条查询记录
+            if (user != null) {
+                res.setCheckUsername(0);
+                res.setCode(SbCode.USERNAME_ALREADY_EXISTS.getCode());
+                res.setMsg(SbCode.USERNAME_ALREADY_EXISTS.getMsg());
+            } else {
+                res.setCheckUsername(1);
+                res.setCode(SbCode.USERNAME_ALREADY_NO_EXISTS.getCode());
+                res.setMsg(SbCode.USERNAME_ALREADY_NO_EXISTS.getMsg());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("checkUsername failed, err = " + e.toString());
+        }
+        return res;
     }
 
     /***
@@ -77,27 +78,28 @@ public class UserServiceImpl implements IUserService {
         user.setPayPassword("");
 
         // 加密
-       String md5Password = MD5Util.encrypt(user.getUserPwd());
-       user.setUserPwd(md5Password);
+        String md5Password = MD5Util.encrypt(user.getUserPwd());
+        user.setUserPwd(md5Password);
 
-       try {
-           userMapper.insert(user);
-           res.setRegister(true);
-           res.setCode(SbCode.SUCCESS.getCode());
-           res.setMsg(SbCode.SUCCESS.getMsg());
-       } catch (Exception e) {
-           e.printStackTrace();
-           res.setRegister(false);
-           res.setCode(SbCode.USER_REGISTER_VERIFY_FAILED.getCode());
-           res.setMsg(SbCode.USER_REGISTER_VERIFY_FAILED.getMsg());
-           log.error("register failed, err = " + e.toString());
-           return res;
-       }
-       return res;
+        try {
+            userMapper.insert(user);
+            res.setRegister(true);
+            res.setCode(SbCode.SUCCESS.getCode());
+            res.setMsg(SbCode.SUCCESS.getMsg());
+        } catch (Exception e) {
+            e.printStackTrace();
+            res.setRegister(false);
+            res.setCode(SbCode.USER_REGISTER_VERIFY_FAILED.getCode());
+            res.setMsg(SbCode.USER_REGISTER_VERIFY_FAILED.getMsg());
+            log.error("register failed, err = " + e.toString());
+            return res;
+        }
+        return res;
     }
 
     /**
      * 登陆业务逻辑
+     *
      * @param request
      * @return
      */
@@ -111,9 +113,9 @@ public class UserServiceImpl implements IUserService {
             QueryWrapper<User> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("user_name", request.getUsername());
             User user = userMapper.selectOne(queryWrapper);
-            if(user != null && user.getUuid() > 0) {
+            if (user != null && user.getUuid() > 0) {
                 String md5Password = MD5Util.encrypt(request.getPassword());
-                if(user.getUserPwd().equals(md5Password)) {
+                if (user.getUserPwd().equals(md5Password)) {
                     res.setUserId(user.getUuid());
                     res.setCode(SbCode.SUCCESS.getCode());
                     res.setMsg(SbCode.SUCCESS.getMsg());
@@ -130,6 +132,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 通过id获取用户信息
+     *
      * @param request
      * @return
      */
@@ -155,6 +158,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 更新用户信息
+     *
      * @param request
      * @return
      */
@@ -168,7 +172,7 @@ public class UserServiceImpl implements IUserService {
             // 支付密码暂时用明文
             Integer integer = userMapper.updateById(user);
 
-            if(integer == 0) {
+            if (integer == 0) {
                 res.setCode(SbCode.USER_INFOR_INVALID.getCode());
                 res.setMsg(SbCode.USER_INFOR_INVALID.getMsg());
             } else {

@@ -65,6 +65,7 @@ public class DateUtil {
 
     /**
      * 获取HH:mm格式
+     *
      * @return
      */
     public static String getHours() {

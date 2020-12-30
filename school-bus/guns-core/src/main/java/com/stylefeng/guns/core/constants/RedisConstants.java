@@ -35,6 +35,7 @@ public enum RedisConstants {
         this.
                 message = message;
     }
+
     public void setTime(Integer time) {
         this.time = time;
     }

@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="guns-user" />
+        <module name="guns-order" />
         <module name="guns-api" />
         <module name="guns-core" />
         <module name="guns-bus" />
@@ -17,6 +18,7 @@
       <module name="guns-api" target="1.8" />
       <module name="guns-bus" target="11" />
       <module name="guns-core" target="15" />
+      <module name="guns-order" target="15" />
       <module name="guns-user" target="1.8" />
       <module name="school-bus" target="1.8" />
     </bytecodeTargetLevel>
@@ -26,6 +28,7 @@
       <module name="guns-api" options="-parameters" />
       <module name="guns-bus" options="-parameters" />
       <module name="guns-core" options="-parameters" />
+      <module name="guns-order" options="-parameters" />
       <module name="guns-user" options="-parameters" />
     </option>
   </component>

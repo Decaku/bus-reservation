@@ -5,6 +5,7 @@ import com.stylefeng.guns.rest.bus.dto.*;
 public interface IBusService {
     /**
      * 分页获取班车
+     *
      * @param request
      * @return
      */
@@ -12,6 +13,7 @@ public interface IBusService {
 
     /**
      * 按照系统当前分页获取场次
+     *
      * @param request
      * @return
      */
@@ -19,6 +21,7 @@ public interface IBusService {
 
     /**
      * 根据场次id获取场次详情
+     *
      * @param request
      * @return
      */
@@ -27,6 +30,7 @@ public interface IBusService {
     /**
      * 入参，座位号和场次号
      * 出参，是否有重复
+     *
      * @param seats
      * @param countId
      * @return
@@ -35,11 +39,12 @@ public interface IBusService {
 
     /**
      * 更新座位信息
+     *
      * @param seats
      * @param countId
      * @return
      */
-     boolean addSeats(String seats, Long countId);
+    boolean addSeats(String seats, Long countId);
 
     /**
      * 去掉countId对应的场次中已出现的座位

@@ -10,9 +10,12 @@ public enum SbCode {
     USER_REGISTER_VERIFY_FAILED("003007", "用户注册失败插入验证数据失败"),
     USERORPASSWORD_ERRROR("003001", "用户名或密码不正确"),
     DB_EXCEPTION("003097", "数据库异常"),
-    USER_INFOR_INVALID("003008", "用户信息不合法");
+    USER_INFOR_INVALID("003008", "用户信息不合法"),
 
+    SELECTED_SEATS("004000", "座位已被选择，请重新选择座位"),
+    SYSTEM_ERROR("003099", "系统错误"),
 
+    ;
 
 
 

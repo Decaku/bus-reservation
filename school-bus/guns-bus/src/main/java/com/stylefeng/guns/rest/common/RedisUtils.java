@@ -16,14 +16,15 @@ public class RedisUtils {
     private RedisTemplate<String, Object> redisTemplate;
 
     /**
-     *指定缓存失效时间
+     * 指定缓存失效时间
+     *
      * @param key
      * @param time 单位秒
      * @return
      */
     public boolean expire(String key, long time) {
         try {
-            if(time > 0) {
+            if (time > 0) {
                 redisTemplate.expire(key, time, TimeUnit.SECONDS);
             }
             return true;
@@ -35,6 +36,7 @@ public class RedisUtils {
 
     /**
      * 获取key过期时间
+     *
      * @param key
      * @return
      */
@@ -44,6 +46,7 @@ public class RedisUtils {
 
     /**
      * 判断key是否存在
+     *
      * @param key
      * @return
      */
@@ -53,6 +56,7 @@ public class RedisUtils {
 
     /**
      * 删key
+     *
      * @param key
      * @return
      */
@@ -62,6 +66,7 @@ public class RedisUtils {
 
     /**
      * 普通缓存获取
+     *
      * @param key
      * @return
      */
@@ -72,6 +77,7 @@ public class RedisUtils {
 
     /**
      * 普通缓存放入
+     *
      * @param key
      * @param value
      * @return true成功 false失败
@@ -88,6 +94,7 @@ public class RedisUtils {
 
     /**
      * 普通缓存设置，如果参数time小于等于0，将永不过期
+     *
      * @param key
      * @param value
      * @param time
@@ -95,7 +102,7 @@ public class RedisUtils {
      */
     public boolean set(String key, Object value, long time) {
         try {
-            if(time > 0) {
+            if (time > 0) {
                 redisTemplate.opsForValue().set(key, value, time, TimeUnit.SECONDS);
             } else {
                 redisTemplate.opsForValue().set(key, value);
@@ -109,12 +116,13 @@ public class RedisUtils {
 
     /**
      * 递增
+     *
      * @param key
      * @param delta
      * @return
      */
     public long incr(String key, long delta) {
-        if(delta < 0) {
+        if (delta < 0) {
             throw new RuntimeException("递增参数必须>=0");
         }
         return redisTemplate.opsForValue().increment(key, delta);
@@ -122,12 +130,13 @@ public class RedisUtils {
 
     /**
      * 递减
+     *
      * @param key
      * @param delta
      * @return
      */
     public long decr(String key, long delta) {
-        if(delta < 0) {
+        if (delta < 0) {
             throw new RuntimeException("递增参数必须>=0");
         }
         return redisTemplate.opsForValue().increment(key, -delta);
@@ -135,6 +144,7 @@ public class RedisUtils {
 
     /**
      * HashGet key和item不能为null
+     *
      * @param key
      * @param item
      * @return
@@ -145,6 +155,7 @@ public class RedisUtils {
 
     /**
      * 获取key对应的所有键值对
+     *
      * @param key
      * @return
      */
@@ -175,13 +186,14 @@ public class RedisUtils {
 
     /**
      * 获取redis里的list，start=0,end=-1代表获取所有值
+     *
      * @param key
      * @param start
      * @param end
      * @return
      */
     public List<Object> lGet(String key, long start, long end) {
-        try{
+        try {
             return redisTemplate.opsForList().range(key, start, end);
         } catch (Exception e) {
             e.printStackTrace();
@@ -191,12 +203,13 @@ public class RedisUtils {
 
     /**
      * 获取list第index个元素，从0开始，-1代表倒数第一个元素，以此类推
+     *
      * @param key
      * @param index
      * @return
      */
     public Object lGetIndex(String key, long index) {
-        try{
+        try {
             return redisTemplate.opsForList().index(key, index);
         } catch (Exception e) {
             e.printStackTrace();

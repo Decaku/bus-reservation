@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 public class UserCheckRequest extends AbstractRequest {
 
-    private  String username;
+    private String username;
 }

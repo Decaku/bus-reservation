@@ -10,13 +10,14 @@ import java.time.LocalDateTime;
 
 /**
  * 用户表
+ *
  * @author decaku
  */
 @TableName("sb_user")
 @Data
 public class User extends Model<User> {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 主键编号
