@@ -15,6 +15,11 @@ public enum SbCode {
     SELECTED_SEATS("004000", "座位已被选择，请重新选择座位"),
     SYSTEM_ERROR("003099", "系统错误"),
 
+    PAY_PASSWORD_ERROR("004001", "支付密码错误"),
+    MONEY_ERROR("004002", "用户余额不足，请充值"),
+
+
+
     ;
 
 

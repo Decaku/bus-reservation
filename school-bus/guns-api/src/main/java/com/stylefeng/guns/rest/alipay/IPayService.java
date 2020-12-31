@@ -10,7 +10,7 @@ public interface IPayService {
      * @param requset
      * @return
      */
-    PayResponse pay(PayRequest requset);
+    PayResponse pay(PayRequest request);
 
     /**
      * 退款业务逻辑
