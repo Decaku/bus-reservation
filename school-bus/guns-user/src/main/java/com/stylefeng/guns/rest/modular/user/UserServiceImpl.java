@@ -1,18 +1,20 @@
 package com.stylefeng.guns.rest.modular.user;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.Query;
-import com.stylefeng.guns.core.util.MD5Util;
 import com.stylefeng.guns.rest.common.persistence.dao.UserMapper;
 import com.stylefeng.guns.rest.common.persistence.model.User;
 import com.stylefeng.guns.rest.modular.user.converter.UserConverter;
 import com.stylefeng.guns.rest.user.IUserService;
 import com.stylefeng.guns.rest.user.dto.*;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.sun.tools.javac.util.Convert;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.stylefeng.guns.core.constants.SbCode;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.stereotype.Component;
+//import org.apache.dubbo.config.annotation.Service;
+
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -21,6 +23,8 @@ import java.util.Date;
 
 
 @Slf4j
+@Component
+@Service
 public class UserServiceImpl implements IUserService {
 
     @Autowired
@@ -78,7 +82,8 @@ public class UserServiceImpl implements IUserService {
         user.setPayPassword("");
 
         // 加密
-        String md5Password = MD5Util.encrypt(user.getUserPwd());
+        //String md5Password = MD5Util.encrypt(user.getUserPwd());
+        String md5Password = DigestUtils.md5Hex(user.getUserPwd()).toUpperCase();
         user.setUserPwd(md5Password);
 
         try {
@@ -114,7 +119,8 @@ public class UserServiceImpl implements IUserService {
             queryWrapper.eq("user_name", request.getUsername());
             User user = userMapper.selectOne(queryWrapper);
             if (user != null && user.getUuid() > 0) {
-                String md5Password = MD5Util.encrypt(request.getPassword());
+                String md5Password = DigestUtils.md5Hex(request.getPassword()).toUpperCase();
+                //String md5Password = MD5Util.encrypt(request.getPassword());
                 if (user.getUserPwd().equals(md5Password)) {
                     res.setUserId(user.getUuid());
                     res.setCode(SbCode.SUCCESS.getCode());

@@ -8,8 +8,9 @@
         <option value="$PROJECT_DIR$/school-bus/guns-bus/pom.xml" />
         <option value="$PROJECT_DIR$/school-bus/guns-order/pom.xml" />
         <option value="$PROJECT_DIR$/school-bus/guns-pay/pom.xml" />
+        <option value="$PROJECT_DIR$/school-bus/guns-gateway/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="openjdk-15" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="adopt-openjdk-1.8" project-jdk-type="JavaSDK" />
 </project>

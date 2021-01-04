@@ -5,17 +5,11 @@ import lombok.Data;
 
 @Data
 public class UserRegisterRequest extends AbstractRequest {
-    private Long id;
+    private String username;
 
-    private String nickName;
-
-    private Integer userSex;
+    private String password;
 
     private String email;
 
-    private String userPhone;
-
-    private Double money;
-
-    private String payPassword;
+    private String phone;
 }
