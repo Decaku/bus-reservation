@@ -18,6 +18,9 @@ public enum SbCode {
     PAY_PASSWORD_ERROR("004001", "支付密码错误"),
     MONEY_ERROR("004002", "用户余额不足，请充值"),
 
+    REQUISITE_PARAMETER_NOT_EXIST("003073", "必要的参数不能为空"),
+
+
 
 
     ;
