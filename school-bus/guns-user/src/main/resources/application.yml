@@ -63,12 +63,12 @@ dubbo:
     id: guns-user
   registry:
     protocol: zookeeper
-    address: 127.0.0.1:2181
+    address: localhost:2181
   protocol:
     port: 20881
     name: dubbo
   metadata-report:
-    address: zookeeper://127.0.0.1:2181
+    address: zookeeper://localhost:2181
 
 
 rocketmq:

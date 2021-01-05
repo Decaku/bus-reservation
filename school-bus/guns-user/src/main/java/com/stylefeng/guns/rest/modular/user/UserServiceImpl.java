@@ -44,6 +44,7 @@ public class UserServiceImpl implements IUserService {
         UserCheckResponse res = new UserCheckResponse();
         try {
             QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+            log.info("user_name = " + request.getUsername());
             queryWrapper.eq("user_name", request.getUsername()); // 拼接SQL "user_name=${request.getUsername()}"
             User user = userMapper.selectOne(queryWrapper); // 返回一条查询记录
             if (user != null) {
@@ -197,3 +198,4 @@ public class UserServiceImpl implements IUserService {
         return res; //
     }
 }
+

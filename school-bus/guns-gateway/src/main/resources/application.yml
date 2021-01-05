@@ -55,7 +55,7 @@ dubbo:
     name: guns-gateway
   registry:
     protocol: zookeeper
-    address: 127.0.0.1:2181
+    address: localhost:2181
 
 
 swagger:

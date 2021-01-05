@@ -37,7 +37,6 @@ public class UserController {
     @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "String", paramType = "query")
     @GetMapping("check")
     public ResponseData checkUsername(String username) {
-        log.info("==============  just a log");
         try {
             if(username.equals("")) {
                 return new ResponseUtil<>().setErrorMsg("用户名不能为空");
@@ -45,9 +44,7 @@ public class UserController {
             UserCheckRequest req = new UserCheckRequest();
             req.setUsername(username);
             UserCheckResponse res = userAPI.checkUsername(req);
-
             log.info("ResponseData res = " + res.toString());
-
             return new ResponseUtil<>().setData(res);
         } catch (Exception e) {
             log.error("checkUsername failed, err = " + e.toString());
@@ -58,10 +55,4 @@ public class UserController {
         }
     }
 
-    @ApiOperation(value = "检查用户名接口", notes = "给定用户名 查询用户是否存在", response = UserCheckResponse.class)
-    @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "String", paramType = "query")
-    @GetMapping("fuck")
-    public String test() {
-        return "fuck";
-    }
 }
