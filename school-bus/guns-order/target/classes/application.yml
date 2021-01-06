@@ -1,6 +1,6 @@
 
 server:
-  port: 8081 #项目端口
+  port: 8083 #项目端口
 
 mybatis-plus:
   mapper-locations: classpath*:com/stylefeng/guns/rest/**/mapping/*.xml
@@ -11,13 +11,13 @@ mybatis-plus:
     cache-enabled: true #配置的缓存的全局开关
     lazyLoadingEnabled: true #延时加载的开关
     multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
 
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/school_bus?serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8
     #      url: jdbc:mysql://39.108.93.119:3306/school_bus?serverTimeZone=UTC&useSSL=false&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/school_bus?serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8
     username: root
     password: 12345678
     type: com.alibaba.druid.pool.DruidDataSource
@@ -40,9 +40,9 @@ spring:
         login-password: 123
   redis:
     database: 0
-    host: 127.0.0.1
+    host: localhost
     port: 6379
-    #password: 123
+    password: 123
     timeout: 5000ms
     jedis:
       pool:
@@ -50,36 +50,33 @@ spring:
         max-wait: -1
         max-idle: 8
 
-
 logging:
   level.root: info
   level.com.stylefeng: debug
   path: logs/
-  file: sb-user.log
+  file: sb-order.log
 
 dubbo:
   application:
-    name: guns-user
-    id: guns-user
+    name: guns-order
+    id: guns-order
   registry:
     protocol: zookeeper
     address: localhost:2181
   protocol:
-    port: 20881
+    port: 20883
     name: dubbo
   metadata-report:
     address: zookeeper://localhost:2181
 
-
 rocketmq:
   name-server: 39.108.93.119:9876
   producer:
-    group: orderProducerGroup
+    group: orderProducerGroup # 生产消息的组
 
 mq:
-  pay:
+  order:
     consumer:
       group:
-        name: payTopic_cancel_group
-    topic: payTopic
-
+        name: orderTopic_cancel_group
+    topic: orderTopic # 话题：订单话题

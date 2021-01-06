@@ -503,3 +503,12 @@ java.lang.NullPointerException: null
 
 2021-01-06 14:37:19.762  WARN 57184 --- [http-nio-8087-exec-9] c.s.guns.rest.modular.bus.BusController  : getCountDetailById
 
+2021-01-06 14:40:14.989  INFO 57184 --- [SpringContextShutdownHook] .b.c.e.AwaitingNonWebApplicationListener :  [Dubbo] Current Spring Boot Application is about to shutdown...
+2021-01-06 14:40:15.014  INFO 57184 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-06 14:40:15.016  INFO 57184 --- [Curator-Framework-0] o.a.c.f.imps.CuratorFrameworkImpl        : backgroundOperationsLoop exiting
+2021-01-06 14:40:15.025  INFO 57184 --- [DubboShutdownHook] org.apache.zookeeper.ZooKeeper           : Session: 0x1000fbb60ac000c closed
+2021-01-06 14:40:15.025  INFO 57184 --- [main-EventThread] org.apache.zookeeper.ClientCnxn          : EventThread shut down for session: 0x1000fbb60ac000c
+2021-01-06 14:40:15.131  INFO 57184 --- [SpringContextShutdownHook] f.a.ReferenceAnnotationBeanPostProcessor : org.apache.dubbo.common.bytecode.proxy1@620e70a2 was destroying!
+2021-01-06 14:40:15.132  INFO 57184 --- [SpringContextShutdownHook] f.a.ReferenceAnnotationBeanPostProcessor : org.apache.dubbo.common.bytecode.proxy0@36203eaa was destroying!
+2021-01-06 14:40:15.132  INFO 57184 --- [SpringContextShutdownHook] f.a.ReferenceAnnotationBeanPostProcessor : org.apache.dubbo.common.bytecode.proxy0@36203eaa was destroying!
+2021-01-06 14:40:15.132  INFO 57184 --- [SpringContextShutdownHook] f.a.ReferenceAnnotationBeanPostProcessor : class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!

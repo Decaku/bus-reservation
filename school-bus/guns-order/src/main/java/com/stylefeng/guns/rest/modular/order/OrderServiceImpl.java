@@ -8,7 +8,7 @@ import com.stylefeng.guns.core.constants.MqTags;
 import com.stylefeng.guns.core.constants.RedisConstants;
 import com.stylefeng.guns.core.constants.SbCode;
 import com.stylefeng.guns.rest.bus.IBusService;
-import com.stylefeng.guns.rest.common.persistence.dao.mapping.OrderMapper;
+import com.stylefeng.guns.rest.common.persistence.dao.OrderMapper;
 import com.stylefeng.guns.rest.common.persistence.model.Order;
 import com.stylefeng.guns.rest.modular.order.converter.OrderConverter;
 import com.stylefeng.guns.rest.mq.MQDto;
@@ -22,7 +22,8 @@ import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import org.apache.dubbo.config.annotation.Service;
+
 import org.apache.dubbo.config.annotation.Reference;
 import com.stylefeng.guns.core.util.DateUtil;
 

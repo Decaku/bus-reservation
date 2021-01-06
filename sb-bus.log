@@ -2434,3 +2434,13 @@ java.lang.NullPointerException: null
 2021-01-06 14:37:19.739 DEBUG 57180 --- [DubboServerHandler-172.20.10.6:20882-thread-4] c.s.g.r.c.p.d.C.selectCountDetailById    : ==>  Preparing: SELECT sc.uuid , sc.bus_id , sc.bus_status , sc.begin_time , sc.begin_date , sc.selected_seats , sc.price, sb.driver_name , sb.seats_number FROM sb_count sc LEFT JOIN sb_bus sb ON sc.bus_id = sb.uuid WHERE (sc.uuid = ?)
 2021-01-06 14:37:19.747 DEBUG 57180 --- [DubboServerHandler-172.20.10.6:20882-thread-4] c.s.g.r.c.p.d.C.selectCountDetailById    : ==> Parameters: 1327842601310752768(Long)
 2021-01-06 14:37:19.755 DEBUG 57180 --- [DubboServerHandler-172.20.10.6:20882-thread-4] c.s.g.r.c.p.d.C.selectCountDetailById    : <==      Total: 1
+2021-01-06 14:40:15.050  INFO 57180 --- [Thread-9] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@78ffe6dc: startup date [Wed Jan 06 14:32:16 CST 2021]; root of context hierarchy
+2021-01-06 14:40:15.052  INFO 57180 --- [Thread-9] .b.c.e.AwaitingNonWebApplicationListener :  [Dubbo] Current Spring Boot Application is about to shutdown...
+2021-01-06 14:40:15.054  INFO 57180 --- [Thread-9] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2021-01-06 14:40:15.054  INFO 57180 --- [Thread-9] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2021-01-06 14:40:15.055  INFO 57180 --- [Thread-9] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2021-01-06 14:40:15.057  INFO 57180 --- [Thread-9] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-01-06 14:40:15.065  INFO 57180 --- [Curator-Framework-0] o.a.c.f.imps.CuratorFrameworkImpl        : backgroundOperationsLoop exiting
+2021-01-06 14:40:15.070  INFO 57180 --- [Thread-9] f.a.ReferenceAnnotationBeanPostProcessor : class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!
+2021-01-06 14:40:15.077  INFO 57180 --- [main-EventThread] org.apache.zookeeper.ClientCnxn          : EventThread shut down for session: 0x1000fbb60ac000b
+2021-01-06 14:40:15.077  INFO 57180 --- [DubboShutdownHook] org.apache.zookeeper.ZooKeeper           : Session: 0x1000fbb60ac000b closed

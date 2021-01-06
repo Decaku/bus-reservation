@@ -7,7 +7,7 @@ import com.stylefeng.guns.rest.alipay.dto.PayResponse;
 public interface IPayService {
     /**
      * 支付业务逻辑
-     * @param requset
+     * @param request
      * @return
      */
     PayResponse pay(PayRequest request);

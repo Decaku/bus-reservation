@@ -1,4 +1,4 @@
-package com.stylefeng.guns.rest.common.persistence.dao.mapping;
+package com.stylefeng.guns.rest.common.persistence.dao;
 
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
